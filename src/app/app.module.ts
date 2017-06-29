@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { NativeAudio } from '@ionic-native/native-audio';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
+import { Camera } from '@ionic-native/camera';
 
 import {AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -47,6 +48,7 @@ const firebaseConfig = {
     SplashScreen,
     NativeAudio,
     SpeechRecognition,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

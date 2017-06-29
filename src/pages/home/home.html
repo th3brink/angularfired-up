@@ -10,7 +10,8 @@
 
 <ion-content padding>
   <ion-fab top right edge>
-      <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+      <button style="display: inline-block" ion-fab mini (click)="captureImage()"><ion-icon name="image"></ion-icon></button>
+      <button style="display: inline-block" ion-fab mini (click)="startRecording()"><ion-icon name="microphone"></ion-icon></button>
   </ion-fab>
 
   <h3>Todo</h3>
@@ -19,11 +20,14 @@
    <ion-item>
     <ion-label color="primary" fixed>New</ion-label>
     <ion-input type="text" placeholder="Task" [(ngModel)]="newTask"></ion-input>
-    <button ion-button clear item-end (click)="addTask()">add</button>
+    <button ion-button item-end outline (click)="addTask()">add</button>
   </ion-item>
 
    <ion-item *ngFor="let task of tasks">
      <h2>{{task.name}}</h2>
+      <div style="height: 100px; width: 100px;" item-start>
+        <img *ngIf="task?.image" [src]="task.image">
+      </div>
      <button ion-button item-end outline (click)="removeTask(task.$key)">done?</button>
    </ion-item>
 
